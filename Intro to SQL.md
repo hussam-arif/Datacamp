@@ -1,15 +1,18 @@
-# DataCamp Notes
+# Intro to SQL
 
-## Introduction
-This repository contains notes and exercises for DataCamp courses.
+##Course Goals
+1. Understand **databases** and their structure.  
+2. Learn to **extract data** using **SQL code**.
 
-## Topics Covered
-- Python for Data Science
-- Machine Learning
-- SQL Basics
-- Data Visualization
+---
 
-## To-Do List
-- [ ] Complete Python course
-- [ ] Start SQL exercises
+## Introducing Databases
+- A **database** stores data in **tables** (rows and columns).  
+- Example: Library database with tables for **patrons, books, and checkouts**.
 
+##  SQL
+- **SQL** (Structured Query Language) is the most widely used programming language for:
+  - Creating  
+  - Querying  
+  - Updating relational databases  
+- Example: Write SQL queries to answer library-related questions.
