@@ -81,4 +81,37 @@
     - Centralized computers that perform services (e.g., data access, websites).
     - Typically powerful machines that handle high volumes of requests.
 
+# Introducing Queries - Key Notes
+
+- **SQL Queries**:  
+  - SQL is used to answer questions both within and across relational database tables.
+  - Example: Find which books James checked out in 2022 or compare salaries across departments.
+
+- **Best for Large Datasets**:  
+  - SQL complements tools like spreadsheets but excels with large, complex datasets.
+  - Example: Use SQL for data related to website traffic, customer reviews, or product sales where relationships between data are critical.
+
+- **Keywords**:  
+  - **SELECT**: Specifies the fields to retrieve (e.g., `name`).
+  - **FROM**: Specifies the table containing the data (e.g., `patrons`).
+
+- **Writing a Query**:  
+  - Queries consist of a **SELECT** statement followed by a **FROM** statement.
+  - Best practices:
+    - Capitalize keywords (e.g., SELECT, FROM).
+    - Use lowercase for table and field names.
+    - End queries with a **semicolon** (`;`).
+
+- **Result Set**:  
+  - The result set is the output of a query (e.g., a list of patron names).
+  - Writing a query does not modify the database itself.
+
+- **Selecting Multiple Fields**:  
+  - List field names after the **SELECT** keyword, separated by commas (e.g., `SELECT card_num, name`).
+  - The order of fields in the result set does not need to match the table.
+
+- **Selecting All Fields**:  
+  - Use an asterisk (`*`) to select all fields in a table (e.g., `SELECT * FROM patrons`).
+
+
 
