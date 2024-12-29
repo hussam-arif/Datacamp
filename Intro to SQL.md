@@ -1,6 +1,6 @@
 # Intro to SQL
 
-##Course Goals
+## Course Goals
 1. Understand **databases** and their structure.  
 2. Learn to **extract data** using **SQL code**.
 
