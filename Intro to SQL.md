@@ -114,4 +114,42 @@
   - Use an asterisk (`*`) to select all fields in a table (e.g., `SELECT * FROM patrons`).
 
 
+# Writing Queries - Key Notes
+
+- **Aliasing**:  
+  - Rename columns in the result set using the **AS** keyword for clarity or brevity.  
+  - Example:  
+    ```sql
+    SELECT name AS first_name, hire_year FROM employees;
+    ```
+  - The alias only affects the query result, not the original table.
+
+- **Selecting Distinct Records**:  
+  - Use the **DISTINCT** keyword to return unique values.  
+  - Example: Get unique years employees were hired:  
+    ```sql
+    SELECT DISTINCT year_hired FROM employees;
+    ```
+
+- **DISTINCT with Multiple Fields**:  
+  - Return unique combinations of multiple fields by using DISTINCT with multiple columns.  
+  - Example:  
+    ```sql
+    SELECT DISTINCT dept_id, year_hired FROM employees;
+    ```
+
+- **Views**:  
+  - A **view** is a virtual table created by saving a SQL query.  
+  - Views automatically update results when the underlying data changes.  
+  - To create a view:  
+    ```sql
+    CREATE VIEW employee_hire_years AS
+    SELECT name, hire_year FROM employees;
+    ```
+  - Query a view just like a table:  
+    ```sql
+    SELECT * FROM employee_hire_years;
+    ```
+
+
 
