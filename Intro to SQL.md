@@ -45,8 +45,3 @@
 - **Table Separation**:
   - Separate information into distinct tables for clarity and to avoid duplicate data.
   - Example: Keep patrons and checkouts in separate tables and use SQL to connect them when needed.
-
----
-
-**Next Steps:** Practice querying tables and understanding the relationships between them!
-
