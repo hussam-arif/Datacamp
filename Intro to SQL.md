@@ -1,18 +1,21 @@
-# Intro to SQL
+# Intro to SQL - Key Notes
 
-## Course Goals
-1. Understand **databases** and their structure.  
-2. Learn to **extract data** using **SQL code**.
+1. **Databases** store data in tables (rows and columns).
+2. Tables in databases can include data like:
+   - **Patrons**: library card number, name, membership year, fines owed.
+   - **Books**: book information.
+   - **Checkouts**: records of borrowed books.
+3. **Relational databases** link data between tables, enabling questions like:
+   - "Which books did James check out in 2022?"
+   - "Which books are checked out most often?"
+4. **Advantages of databases**:
+   - More powerful than spreadsheets.
+   - Can store more data securely.
+   - Allow multiple users to query data simultaneously.
+5. **SQL (Structured Query Language)**:
+   - Used to create, query, and update databases.
+   - Accesses and presents data without changing it.
 
 ---
 
-## Introducing Databases
-- A **database** stores data in **tables** (rows and columns).  
-- Example: Library database with tables for **patrons, books, and checkouts**.
-
-##  SQL
-- **SQL** (Structured Query Language) is the most widely used programming language for:
-  - Creating  
-  - Querying  
-  - Updating relational databases  
-- Example: Write SQL queries to answer library-related questions.
+**Next Steps:** Start practicing with SQL queries to extract data from databases!
