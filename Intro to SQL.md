@@ -151,5 +151,39 @@
     SELECT * FROM employee_hire_years;
     ```
 
+# SQL Flavors - Key Notes
+
+- **SQL Flavors**:  
+  - SQL flavors are different versions of SQL, often designed to complement major relational database systems (e.g., Microsoft SQL Server, Oracle Database).  
+  - All SQL flavors follow universal standards set by ISO and ANSI. Differences come from additional features built on top of these standards.
+
+- **Two Popular SQL Flavors**:  
+  - **PostgreSQL**:  
+    - Free and open-source relational database system.  
+    - Originally developed at the University of California, Berkeley.  
+    - Sponsored by DARPA, the agency behind innovations like the internet, GPS, and the computer mouse.  
+    - Uses `PostgreSQL SQL` flavor.  
+  - **SQL Server**:  
+    - Developed by Microsoft.  
+    - Available in free and enterprise versions.  
+    - Uses **T-SQL**, Microsoft's proprietary SQL flavor.  
+
+- **Comparing PostgreSQL and SQL Server**:  
+  - SQL flavors are like dialects of the same language (e.g., American vs. British English).  
+  - Example: Limiting results:  
+    - PostgreSQL: Use `LIMIT`.  
+      ```sql
+      SELECT name, id FROM employees LIMIT 2;
+      ```
+    - SQL Server: Use `TOP`.  
+      ```sql
+      SELECT TOP 2 name, id FROM employees;
+      ```
+  - Differences are small, and queries often look similar.
+
+- **Choosing a Flavor**:  
+  - Learn the flavor your employer or project requires (e.g., SQL Server for Microsoft-based systems).  
+  - Don’t worry too much—learning one flavor makes it easy to switch to another with minor adjustments.  
+
 
 
