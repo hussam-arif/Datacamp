@@ -44,6 +44,3 @@
     ```
   - Note: The count of distinct values may differ from the total count due to duplicates.
 
----
-
-**Next Steps:** Practice counting records and applying DISTINCT to queries!
