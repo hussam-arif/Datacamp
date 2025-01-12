@@ -80,6 +80,49 @@
   - Incorrect capitalization.  
 
 - **Final Note**:  
-  - Debugging is an essential skill, and the best way to master it is by making and learning from mistakes.  
+  - Debugging is an essential skill, and the best way to master it is by making and learning from mistakes.
+ 
+  # SQL Style - Key Notes
+
+- **SQL Formatting**:  
+  - SQL does not require strict formatting like other programming languages.  
+  - Example: Queries without capitalization or new lines will still run but are harder to read.  
+
+- **Best Practices**:  
+  - Capitalize SQL keywords (e.g., `SELECT`, `FROM`).  
+  - Use new lines and indentation to improve readability.  
+  - Example of well-formatted SQL:  
+    ```sql
+    SELECT
+        title,
+        release_year,
+        country
+    FROM films
+    LIMIT 3;
+    ```
+
+- **Style Guides**:  
+  - Follow a SQL style guide for consistency (e.g., Holywell's guide).  
+  - Common practices:  
+    - Capitalize keywords.  
+    - Indent selected fields when listing multiple fields.  
+    - Use clear naming conventions for tables, fields, and aliases.  
+
+- **Semicolon (`;`)**:  
+  - Optional in PostgreSQL but considered best practice for:  
+    - Compatibility with other SQL flavors.  
+    - Clearly indicating the end of a query, especially in files with multiple queries.
+
+- **Non-Standard Field Names**:  
+  - Fields with spaces in their names must be enclosed in double quotes.  
+  - Example:  
+    ```sql
+    SELECT "release year" FROM films;
+    ```
+
+- **Why Format?**:  
+  - Readable and clean SQL code improves collaboration and debugging.  
+  - Following SQL style guides is valued in professional environments.
+
 
 
