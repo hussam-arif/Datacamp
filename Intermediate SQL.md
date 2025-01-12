@@ -43,4 +43,43 @@
     SELECT COUNT(DISTINCT birthdate) AS unique_birthdates FROM people;
     ```
   - Note: The count of distinct values may differ from the total count due to duplicates.
+ 
+
+# Query Execution - Key Notes
+
+- **Order of Execution**:  
+  - SQL code is processed in a specific order, not as it is written:  
+    1. **FROM**: Identify the table containing the data.  
+    2. **SELECT**: Choose the fields to retrieve.  
+    3. **Other clauses**: Refine results (e.g., `LIMIT`, `WHERE`).  
+  - Example: Limit results to the first ten names from the `people` table:  
+    ```sql
+    SELECT name FROM people LIMIT 10;
+    ```
+  - Understanding execution order is crucial for debugging and using aliases effectively.
+
+- **Debugging SQL**:  
+  - **Helpful Error Messages**:  
+    - SQL often pinpoints the issue, such as misspelling a field name or missing a keyword.  
+  - **Comma Errors**:  
+    - Missing commas are common. Check for commas between fields in the `SELECT` statement.  
+    - Example: Missing comma between `country` and `duration` in:  
+      ```sql
+      SELECT title, country duration FROM films;
+      ```  
+      Correct version:  
+      ```sql
+      SELECT title, country, duration FROM films;
+      ```
+  - **Keyword Errors**:  
+    - Misspelled keywords result in precise error messages with caret indicators pointing to the issue.  
+
+- **Common Errors**:  
+  - Misspelled fields or keywords.  
+  - Missing commas or punctuation.  
+  - Incorrect capitalization.  
+
+- **Final Note**:  
+  - Debugging is an essential skill, and the best way to master it is by making and learning from mistakes.  
+
 
