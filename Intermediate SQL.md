@@ -1,7 +1,4 @@
-# DataCamp Notes
-
-## Introduction
-This repository contains notes and exercises for DataCamp courses.
+# Intermediate SQL Notes
 
 # Querying a Database - Key Notes
 
