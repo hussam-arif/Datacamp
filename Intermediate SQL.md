@@ -161,4 +161,54 @@
     - **FROM**: Identify the table.  
     - **WHERE**: Filter the records.  
     - **SELECT**: Retrieve specified fields.  
-    - **LIMIT**: Limit the result set.  
+    - **LIMIT**: Limit the result set.
+
+
+# Filtering with Multiple Criteria - Key Notes
+
+- **Multiple Criteria**:  
+  - Use additional keywords to filter data based on multiple conditions:  
+    - **OR**: At least one condition must be true.  
+    - **AND**: All conditions must be true.  
+    - **BETWEEN**: Filter values within a range (inclusive).
+
+- **OR Operator**:  
+  - Filters records where at least one condition is satisfied.  
+  - Example: Films released in 1994 **or** 2000:  
+    ```sql
+    SELECT title FROM films WHERE release_year = 1994 OR release_year = 2000;
+    ```
+
+- **AND Operator**:  
+  - Filters records where all conditions are satisfied.  
+  - Example: Films released between 1994 **and** 2000:  
+    ```sql
+    SELECT title FROM films WHERE release_year >= 1994 AND release_year <= 2000;
+    ```
+
+- **Combining AND and OR**:  
+  - Use parentheses to ensure the correct execution order when combining multiple conditions.  
+  - Example: Films released in 1994 **or** 1995, and with a certification of PG **or** R:  
+    ```sql
+    SELECT title 
+    FROM films 
+    WHERE (release_year = 1994 OR release_year = 1995) 
+      AND (certification = 'PG' OR certification = 'R');
+    ```
+
+- **BETWEEN Keyword**:  
+  - Shorthand for filtering a range of values.  
+  - Example: Films released **between** 1994 and 2000:  
+    ```sql
+    SELECT title FROM films WHERE release_year BETWEEN 1994 AND 2000;
+    ```
+
+- **Combining BETWEEN with AND and OR**:  
+  - Example: Films released between 1994 and 2000 from the UK:  
+    ```sql
+    SELECT title 
+    FROM films 
+    WHERE release_year BETWEEN 1994 AND 2000 
+      AND country = 'United Kingdom';
+    ```
+
