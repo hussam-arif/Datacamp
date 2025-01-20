@@ -212,3 +212,50 @@
       AND country = 'United Kingdom';
     ```
 
+# Filtering Text - Key Notes
+
+- **Text Filtering with WHERE**:  
+  - Use the `WHERE` clause to filter text data by exact matches or patterns.
+
+- **LIKE Operator**:  
+  - Searches for patterns in a field using wildcards:  
+    - `%` matches zero, one, or many characters.  
+      - Example: Names starting with "Ad":  
+        ```sql
+        SELECT name FROM people WHERE name LIKE 'Ad%';
+        ```
+    - `_` matches a single character.  
+      - Example: Three-letter names starting with "E":  
+        ```sql
+        SELECT name FROM people WHERE name LIKE 'E__';
+        ```
+
+- **NOT LIKE Operator**:  
+  - Finds records that **don’t match** a specific pattern.  
+    - Example: Names without "A.":  
+      ```sql
+      SELECT name FROM people WHERE name NOT LIKE 'A._%';
+      ```
+  - Note: `LIKE` and `NOT LIKE` are case-sensitive.
+
+- **Wildcard Positioning**:  
+  - Wildcards can be used flexibly to match patterns at the start, end, or middle of text:  
+    - Names ending in "r":  
+      ```sql
+      SELECT name FROM people WHERE name LIKE '%r';
+      ```
+    - Names with "t" as the third character:  
+      ```sql
+      SELECT name FROM people WHERE name LIKE '__t%';
+      ```
+
+- **IN Operator**:  
+  - Simplifies filtering with multiple conditions.  
+    - Example: Films released in 1920, 1930, or 1940:  
+      ```sql
+      SELECT title FROM films WHERE release_year IN (1920, 1930, 1940);
+      ```
+    - Example with text: Titles where the country is Germany or France:  
+      ```sql
+      SELECT title FROM films WHERE country IN ('Germany', 'France');
+      ```
