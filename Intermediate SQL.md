@@ -259,3 +259,44 @@
       ```sql
       SELECT title FROM films WHERE country IN ('Germany', 'France');
       ```
+
+  # NULL Values - Key Notes
+
+- **What is NULL?**:  
+  - In SQL, `NULL` represents a missing or unknown value.  
+  - Databases often contain `NULL` values due to human error, unavailable data, or unknown information.  
+  - Handling `NULL` values is crucial to ensure accurate analysis.
+
+- **Filtering NULL Values**:  
+  - Use `IS NULL` to identify missing values.  
+    - Example: Find names with missing birthdates:  
+      ```sql
+      SELECT name FROM people WHERE birthdate IS NULL;
+      ```
+  - Use `IS NOT NULL` to exclude missing values.  
+    - Example: Count people with non-missing birthdates:  
+      ```sql
+      SELECT COUNT(*) FROM people WHERE birthdate IS NOT NULL;
+      ```
+
+- **COUNT() and NULL Values**:  
+  - `COUNT(*)` includes all records, including `NULL` values.  
+  - `COUNT(field_name)` excludes `NULL` values.  
+    - Example:  
+      ```sql
+      SELECT COUNT(birthdate) FROM people;
+      ```
+    - Equivalent to:  
+      ```sql
+      SELECT COUNT(*) FROM people WHERE birthdate IS NOT NULL;
+      ```
+
+- **Practical Example**:  
+  - Analyzing the `deathdate` field in the `people` table:  
+    - Without filtering, we might assume all records have a `deathdate`.  
+    - Checking for `NULL` values reveals that half the records are missing this information, which could lead to inaccurate conclusions if ignored.
+
+- **Best Practices**:  
+  - Always check for `NULL` values using `IS NULL` or `IS NOT NULL`.  
+  - Filtering `NULL` values is a common task and becomes second nature with practice.
+
