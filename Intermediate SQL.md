@@ -125,4 +125,40 @@
   - Following SQL style guides is valued in professional environments.
 
 
+# Filtering Numbers - Key Notes
 
+- **WHERE Clause**:  
+  - Filters data to focus on records relevant to specific business questions.  
+  - Example: Select coats **where** the color is green.
+
+- **Filtering Numbers with Comparison Operators**:  
+  - Common operators used with `WHERE`:
+    - **Greater than** (`>`) – Films released after 1960:  
+      ```sql
+      SELECT title FROM films WHERE release_year > 1960;
+      ```
+    - **Less than** (`<`) – Films released before 1960.  
+    - **Less than or equal to** (`<=`) – Films released during or before 1960.  
+    - **Equal to** (`=`) – Films released in a specific year.  
+    - **Not equal to** (`<>`) – Films released in all years except 1960:  
+      ```sql
+      SELECT title FROM films WHERE release_year <> 1960;
+      ```
+
+- **WHERE with Strings**:  
+  - Filter strings using `=` with single quotes around the value.  
+  - Example: Filter films where the country is Japan:  
+    ```sql
+    SELECT title FROM films WHERE country = 'Japan';
+    ```
+
+- **Order of Execution**:  
+  - Query written order:  
+    ```sql
+    SELECT title FROM films WHERE release_year > 1960 LIMIT 5;
+    ```
+  - Execution order:  
+    - **FROM**: Identify the table.  
+    - **WHERE**: Filter the records.  
+    - **SELECT**: Retrieve specified fields.  
+    - **LIMIT**: Limit the result set.  
