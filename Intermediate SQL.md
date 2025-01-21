@@ -404,5 +404,45 @@
 
 **Key Takeaways**:
 - Combine `WHERE` with aggregate functions to analyze subsets of data.  
-- Use `ROUND()` to improve readability of numerical results.  
+- Use `ROUND()` to improve readability of numerical results.
+
+
+# Aliasing and Arithmetic - Key Notes
+
+- **Arithmetic in SQL**:  
+  - Perform basic arithmetic using `+`, `-`, `*`, and `/`.  
+  - Use parentheses for clarity and to control execution order.  
+  - Example:  
+    ```sql
+    SELECT (gross - budget) AS profit FROM films;
+    ```
+  - Be cautious with division: dividing integers returns an integer.  
+    - To get a precise result, use decimals:  
+      ```sql
+      SELECT 4.0 / 3.0 AS precise_result;
+      ```
+
+- **Aggregate Functions vs. Arithmetic**:  
+  - **Aggregate Functions**: Operate vertically on columns (e.g., `SUM(budget)`).  
+  - **Arithmetic**: Operates horizontally on rows (e.g., `gross - budget`).
+
+- **Aliasing with AS**:  
+  - Use `AS` to name calculated fields for clarity.  
+  - Example:  
+    ```sql
+    SELECT (gross - budget) AS profit FROM films;
+    ```
+  - Avoid ambiguous field names, especially when using multiple functions:  
+    ```sql
+    SELECT MAX(budget) AS max_budget, MAX(gross) AS max_gross FROM films;
+    ```
+
+- **SQL Execution Order and Aliasing**:  
+  - SQL processes in this order:  
+    1. `FROM`: Identify the table.  
+    2. `WHERE`: Filter the data.  
+    3. `SELECT`: Calculate and alias fields.  
+    4. `LIMIT`: Restrict the result set.  
+  - **Aliases cannot be used in `WHERE`**, as they are created in the `SELECT` step.
+
 
