@@ -350,3 +350,59 @@
     SELECT AVG(budget) AS avg_budget FROM films;
     ```
 
+  # Summarizing Subsets - Key Notes
+
+- **Combining WHERE with Aggregate Functions**:  
+  - Use the `WHERE` clause to filter subsets of data before applying aggregate functions.  
+  - Example: Average budget of movies made in 2010 or later:  
+    ```sql
+    SELECT AVG(budget) 
+    FROM films 
+    WHERE release_year >= 2010;
+    ```
+  - Other examples:
+    - Total budget for 2010:  
+      ```sql
+      SELECT SUM(budget) 
+      FROM films 
+      WHERE release_year = 2010;
+      ```
+    - Smallest budget in 2010:  
+      ```sql
+      SELECT MIN(budget) 
+      FROM films 
+      WHERE release_year = 2010;
+      ```
+    - Count of budgets recorded in 2010:  
+      ```sql
+      SELECT COUNT(budget) 
+      FROM films 
+      WHERE release_year = 2010;
+      ```
+
+- **ROUND() Function**:  
+  - Cleans up decimals by rounding to a specified number of places.  
+  - Syntax: `ROUND(number, decimal_places)`  
+    - Example: Average budget rounded to 2 decimals:  
+      ```sql
+      SELECT ROUND(AVG(budget), 2) 
+      FROM films 
+      WHERE release_year >= 2010;
+      ```
+  - **Default Rounding**:  
+    - Omitting the second parameter rounds to the nearest whole number (or pass `0`).  
+
+- **ROUND() with Negative Parameters**:  
+  - Rounds to the left of the decimal point.  
+  - Example: Round to the nearest hundred thousand:  
+    ```sql
+    SELECT ROUND(budget, -5) 
+    FROM films;
+    ```
+
+---
+
+**Key Takeaways**:
+- Combine `WHERE` with aggregate functions to analyze subsets of data.  
+- Use `ROUND()` to improve readability of numerical results.  
+
