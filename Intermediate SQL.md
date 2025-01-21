@@ -300,3 +300,53 @@
   - Always check for `NULL` values using `IS NULL` or `IS NOT NULL`.  
   - Filtering `NULL` values is a common task and becomes second nature with practice.
 
+
+# Summarizing Data - Key Notes
+
+- **What are Aggregate Functions?**:  
+  - Aggregate functions perform calculations on multiple values in a field and return a single value.  
+  - Useful for understanding datasets as a whole, not just individual records.
+
+- **Key Aggregate Functions**:  
+  - **COUNT()**: Counts non-NULL records in a field.  
+  - **AVG()**: Calculates the average value of a numeric field.  
+    ```sql
+    SELECT AVG(budget) FROM films;
+    ```
+  - **SUM()**: Adds up all values in a numeric field.  
+    ```sql
+    SELECT SUM(budget) FROM films;
+    ```
+  - **MIN()**: Returns the lowest value in a field.  
+    ```sql
+    SELECT MIN(budget) FROM films;
+    ```
+  - **MAX()**: Returns the highest value in a field.  
+    ```sql
+    SELECT MAX(budget) FROM films;
+    ```
+
+- **Using Aggregate Functions on Non-Numerical Data**:  
+  - **COUNT()**: Works on any field type to count non-NULL values.  
+  - **MIN()** and **MAX()**: Can be used with:
+    - **Strings**: Returns the alphabetically first (`MIN`) or last (`MAX`) value.  
+      Example:  
+      ```sql
+      SELECT MIN(country), MAX(country) FROM films;
+      ```
+    - **Dates**: Finds the earliest (`MIN`) or latest (`MAX`) date.  
+
+- **Example with Non-Numerical Data**:  
+  - Find the alphabetically first and last countries in the `films` database:  
+    ```sql
+    SELECT MIN(country) AS first_country, MAX(country) AS last_country FROM films;
+    ```
+    Result: Afghanistan (first), West Germany (last).
+
+- **Aliasing in Aggregate Functions**:  
+  - Use aliases to make query results easier to read.  
+  - Example:  
+    ```sql
+    SELECT AVG(budget) AS avg_budget FROM films;
+    ```
+
