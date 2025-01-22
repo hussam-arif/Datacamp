@@ -505,3 +505,64 @@
     ORDER BY imdb_score DESC 
     LIMIT 10;
     ```
+
+
+# Grouping Data - Key Notes
+
+- **Why Group Data?**:  
+  - Grouping allows us to summarize data for specific categories.  
+  - Example: Calculate the average film duration grouped by certification.
+
+- **GROUP BY Clause**:  
+  - Used to group data by one or more fields, often with aggregate functions.  
+  - Example: Group films by certification and calculate average duration:  
+    ```sql
+    SELECT certification, AVG(duration) AS avg_duration 
+    FROM films 
+    GROUP BY certification;
+    ```
+
+- **Error Handling**:  
+  - Fields in the `SELECT` clause must either:
+    - Be included in the `GROUP BY` clause, or  
+    - Use an aggregate function.  
+  - Incorrect query:  
+    ```sql
+    SELECT certification, title 
+    FROM films 
+    GROUP BY certification;
+    ```  
+    - Fix: Add an aggregate function:  
+      ```sql
+      SELECT certification, COUNT(title) AS title_count 
+      FROM films 
+      GROUP BY certification;
+      ```
+
+- **GROUP BY Multiple Fields**:  
+  - Similar to `ORDER BY`, multiple fields can be grouped in sequence.  
+  - Example: Group by certification and language:  
+    ```sql
+    SELECT certification, language, COUNT(title) AS title_count 
+    FROM films 
+    GROUP BY certification, language;
+    ```
+
+- **Combining GROUP BY and ORDER BY**:  
+  - Sort grouped results using `ORDER BY`.  
+  - Example: Sort by the number of titles in descending order:  
+    ```sql
+    SELECT certification, COUNT(title) AS title_count 
+    FROM films 
+    GROUP BY certification 
+    ORDER BY title_count DESC;
+    ```
+
+- **Order of Execution**:  
+  - `GROUP BY` executes after `FROM` but before `SELECT`, `ORDER BY`, and `LIMIT`.  
+  - Execution flow:  
+    - `FROM`: Identify the data source.  
+    - `GROUP BY`: Group the data.  
+    - `SELECT`: Calculate aggregates and define aliases.  
+    - `ORDER BY`: Sort the results.  
+    - `LIMIT`: Restrict the result set.
