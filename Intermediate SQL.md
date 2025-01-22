@@ -566,3 +566,62 @@
     - `SELECT`: Calculate aggregates and define aliases.  
     - `ORDER BY`: Sort the results.  
     - `LIMIT`: Restrict the result set.
+
+
+# Filtering Grouped Data - Key Notes
+
+- **HAVING Clause**:  
+  - Used to filter grouped records based on aggregate functions.  
+  - Example: Show years where more than 10 films were released:  
+    ```sql
+    SELECT release_year, COUNT(title) AS title_count 
+    FROM films 
+    GROUP BY release_year 
+    HAVING COUNT(title) > 10;
+    ```
+
+- **Order of Execution**:  
+  - `HAVING` executes **after** `GROUP BY` and **before** `SELECT`.  
+  - Written order:  
+    ```sql
+    SELECT, FROM, WHERE, GROUP BY, HAVING, ORDER BY, LIMIT
+    ```
+  - Execution order:  
+    ```sql
+    FROM, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT
+    ```
+  - **Why HAVING Exists**:  
+    - `WHERE` filters individual records **before** aggregation.  
+    - `HAVING` filters aggregated (grouped) records.
+
+- **HAVING vs WHERE**:  
+  - Use `WHERE` for individual record filtering:  
+    Example: Films released in 2000:  
+    ```sql
+    SELECT title 
+    FROM films 
+    WHERE release_year = 2000;
+    ```
+  - Use `HAVING` for grouped record filtering:  
+    Example: Years where the average film duration is over 2 hours:  
+    ```sql
+    SELECT release_year, AVG(duration) AS avg_duration 
+    FROM films 
+    GROUP BY release_year 
+    HAVING AVG(duration) > 120;
+    ```
+
+- **Steps for Filtering with HAVING**:  
+  1. **Select the grouped field** (e.g., `release_year`).  
+  2. **Aggregate the target field** (e.g., `AVG(duration)`).  
+  3. **Filter using HAVING** for the aggregated value.  
+  4. **Group by the relevant field** (e.g., `release_year`).  
+
+- **Example Query**:  
+  - Find the release years with an average film duration over 2 hours:  
+    ```sql
+    SELECT release_year, AVG(duration) AS avg_duration 
+    FROM films 
+    GROUP BY release_year 
+    HAVING AVG(duration) > 120;
+    ```
