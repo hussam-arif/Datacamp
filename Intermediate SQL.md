@@ -446,3 +446,62 @@
   - **Aliases cannot be used in `WHERE`**, as they are created in the `SELECT` step.
 
 
+# Sorting Results - Key Notes
+
+- **Sorting in SQL**:  
+  - Sorting results helps organize data in a specific order for better understanding.  
+  - Example: Find the three longest coats by sorting by garment type and length.
+
+- **ORDER BY Clause**:  
+  - Use `ORDER BY` to sort results based on one or more fields.  
+  - By default, `ORDER BY` sorts in ascending order (smallest to largest, A to Z).  
+    ```sql
+    SELECT title FROM films ORDER BY budget;
+    ```
+  - **ASC (Ascending)**: Explicitly sorts results in ascending order (optional).  
+    ```sql
+    SELECT title FROM films ORDER BY budget ASC;
+    ```
+  - **DESC (Descending)**: Sorts results in descending order.  
+    ```sql
+    SELECT title FROM films ORDER BY budget DESC;
+    ```
+
+- **Filtering Null Values**:  
+  - Use `WHERE` before `ORDER BY` to exclude null values for better sorting:  
+    ```sql
+    SELECT title FROM films WHERE budget IS NOT NULL ORDER BY budget DESC;
+    ```
+
+- **Sorting on Non-Selected Fields**:  
+  - It’s possible to sort by fields not included in the `SELECT` clause, but it’s good practice to include them for clarity.  
+    ```sql
+    SELECT title FROM films ORDER BY release_year;
+    ```
+
+- **Sorting by Multiple Fields**:  
+  - Specify multiple fields, separated by commas. The second field acts as a tie-breaker.  
+    Example: Sort films by number of Oscar wins and then by IMDb score:  
+    ```sql
+    SELECT title, oscar_wins, imdb_score 
+    FROM films 
+    ORDER BY oscar_wins DESC, imdb_score DESC;
+    ```
+
+- **Different Sorting Orders for Multiple Fields**:  
+  - Use different orders for each field:  
+    ```sql
+    SELECT name, birthdate 
+    FROM people 
+    ORDER BY birthdate ASC, name DESC;
+    ```
+
+- **Order of Execution**:  
+  - `ORDER BY` is executed after `FROM`, `WHERE`, and `SELECT`, but before `LIMIT`:  
+    ```sql
+    SELECT title 
+    FROM films 
+    WHERE budget > 1000000 
+    ORDER BY imdb_score DESC 
+    LIMIT 10;
+    ```
